@@ -57,7 +57,7 @@ export async function replyMessage(client, event) {
   switch (event.type) {
     case 'follow': {
       try {
-        await handleFollowEvent(client, event.replyToken);
+        return await handleFollowEvent(client, event.replyToken);
       } catch (err) {
         throw err;
       } finally {
@@ -68,9 +68,9 @@ export async function replyMessage(client, event) {
     case 'message': {
       try {
         if (event.message.type !== 'text') {
-          await handleNotUnderstand(client, event.replyToken);
+          return await handleNotUnderstand(client, event.replyToken);
         } else {
-          await handleMessageEvent(client, event.message.text, event.replyToken);
+          return await handleMessageEvent(client, event.message.text, event.replyToken);
         }
       } catch (err) {
         throw err;
