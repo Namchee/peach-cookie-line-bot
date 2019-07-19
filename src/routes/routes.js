@@ -15,9 +15,6 @@ const router = express.Router();
 
 router.post('/webhook',
   middleware(config),
-  (req, res, next) => {
-    checkSignature(req, res, next);
-  },
   (req, res) => {
     Promise.all(req.body.events.map(event => replyMessage(client, event)))
     .then(result => res.status(200).send(result))
