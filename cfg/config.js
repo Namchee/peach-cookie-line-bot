@@ -1,4 +1,3 @@
-/*
 import dotenv from 'dotenv';
 
 const result = dotenv.config({
@@ -9,7 +8,6 @@ if (result.error) {
   console.error('Failed to locate environment variable');
   process.exit();
 }
-*/
 
 export const config = {
   access_token: process.env.CHANNEL_ACCESS_TOKEN,
