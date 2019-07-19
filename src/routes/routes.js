@@ -2,7 +2,7 @@ import express from 'express';
 import { Client, middleware } from '@line/bot-sdk';
 
 import { checkSignature } from './../middleware';
-import { handleEvents } from './../eventhandler';
+import { replyMessage } from './../eventhandler';
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -19,7 +19,7 @@ router.post('/webhook',
     checkSignature(req, res, next);
   },
   (req, res) => {
-    handleEvents(client, req.body.events)
+    Promise.all(req.body.events.map(event => replyMessage(client, event)))
     .then(result => res.status(200).send(result))
     .catch(err => {
       console.error(err);
