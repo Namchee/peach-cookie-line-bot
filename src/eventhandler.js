@@ -7,7 +7,7 @@ const quickReply = {
       action: {
         type: 'message',
         label: 'Hi!',
-        message: 'Hi Peach Cookie!',
+        text: 'Hi Peach Cookie!',
       },
     },
     {
@@ -15,7 +15,7 @@ const quickReply = {
       action: {
         type: 'message',
         label: 'Cheer Up!',
-        message: 'Cheer Up Peach Cookie!',
+        text: 'Cheer Up Peach Cookie!',
       },
     },
     {
@@ -23,7 +23,7 @@ const quickReply = {
       action: {
         type: 'message',
         label: 'Chat...',
-        message: '*Talks to Peach Cookie*',
+        text: '*Talks to Peach Cookie*',
       },
     },
     { 
@@ -31,7 +31,7 @@ const quickReply = {
       action: {
         type: 'message',
         label: 'Favorite Item?',
-        message: 'What kind of things do you like, Peach Cookie?',
+        text: 'What kind of things do you like, Peach Cookie?',
       },
     },
     { 
@@ -39,7 +39,7 @@ const quickReply = {
       action: {
         type: 'message', 
         label: 'Disliked Item?',
-        message: 'What kind of things do you dislike, Peach Cookie?',
+        text: 'What kind of things do you dislike, Peach Cookie?',
       },
     },
     {
@@ -47,7 +47,7 @@ const quickReply = {
       action: {
         type: 'message',
         label: 'Author?',
-        message: 'Who created you, Peach Cookie?',
+        text: 'Who created you, Peach Cookie?',
       },
     },
   ],
@@ -86,10 +86,9 @@ export async function replyMessage(client, event) {
 }
 
 function handleFollowEvent(client, token) {
-  console.log(token);
   const message = {
     type: 'text',
-    message: 'Hello! My name is Peach Cookie! The cutest cookie in Cookie Run: Ovenbreak!',
+    text: 'Hello! My name is Peach Cookie! The cutest cookie in Cookie Run: Ovenbreak!\n\nYou can ask me anything by pressing those topic buttons!',
     quickReply,
   };
 
@@ -97,8 +96,6 @@ function handleFollowEvent(client, token) {
 }
 
 function handleMessageEvent(client, text, token) {
-  console.log(text);
-  console.log(token);
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',
@@ -130,7 +127,7 @@ function handleMessageEvent(client, text, token) {
     case 'What kind of things do you like, Peach Cookie?': {
       let msg = 'I like:\n\n';
       for (let i = 0, len = data.like.length; i < len; i++) {
-        msg += `${i}. ${data.like[i]}`;
+        msg += `${i + 1}. ${data.like[i]}`;
         if (i < len - 1) {
           msg += '\n';
         }
@@ -160,7 +157,6 @@ function handleMessageEvent(client, text, token) {
 }
 
 function handleNotUnderstand(client, token) {
-  console.log(token);
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',

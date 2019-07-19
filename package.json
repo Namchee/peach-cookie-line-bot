@@ -4,7 +4,6 @@
   "description": "Experimentation of LINE Chatbot x CROB",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./index.js -d dist",
     "start": "babel-node ./index.js"
   },
   "repository": {
@@ -24,13 +23,19 @@
   "homepage": "https://github.com/Namchee/peach-cookie-line-bot#readme",
   "dependencies": {
     "@line/bot-sdk": "^6.8.0",
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^4.17.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
-    "@babel/preset-env": "^7.5.5"
+    "@babel/preset-env": "^7.5.5",
+    "@types/morgan": "^1.7.36",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "parcel": "^1.12.3"
   }
 }

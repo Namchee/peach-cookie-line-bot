@@ -4,9 +4,11 @@ import { Client, middleware } from '@line/bot-sdk';
 import { checkSignature } from './../middleware';
 import { replyMessage } from './../eventhandler';
 
+import { config as cfg } from './../../cfg/config';
+
 const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.CHANNEL_SECRET,
+  channelAccessToken: cfg.access_token,
+  channelSecret: cfg.secret,
 };
 
 const client = new Client(config);
