@@ -57,7 +57,7 @@ export async function replyMessage(client, event) {
   switch (event.type) {
     case 'follow': {
       try {
-        await handleFollowEvent(client);
+        await handleFollowEvent(client, event.replyToken);
       } catch (err) {
         throw err;
       } finally {
@@ -68,9 +68,9 @@ export async function replyMessage(client, event) {
     case 'message': {
       try {
         if (event.message.type !== 'text') {
-          await handleNotUnderstand(client);
+          await handleNotUnderstand(client, event.replyToken);
         } else {
-          await handleMessageEvent(client, event.message.text);
+          await handleMessageEvent(client, event.message.text, event.replyToken);
         }
       } catch (err) {
         throw err;
@@ -85,17 +85,17 @@ export async function replyMessage(client, event) {
   }
 }
 
-function handleFollowEvent(client) {
+function handleFollowEvent(client, token) {
   const message = {
     type: 'text',
     message: 'Hello! My name is Peach Cookie! The cutest cookie in Cookie Run: Ovenbreak!',
     quickReply,
   };
 
-  return client.replyMessage(message);
+  return client.replyMessage(token, message);
 }
 
-function handleMessageEvent(client, text) {
+function handleMessageEvent(client, text, token) {
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',
@@ -153,15 +153,15 @@ function handleMessageEvent(client, text) {
     }
   }
 
-  return client.replyMessage(message);
+  return client.replyMessage(token, message);
 }
 
-function handleNotUnderstand(client) {
+function handleNotUnderstand(client, token) {
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',
     quickReply,
   };
 
-  return client.replyMessage(message);
+  return client.replyMessage(token, message);
 }
