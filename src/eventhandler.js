@@ -86,6 +86,7 @@ export async function replyMessage(client, event) {
 }
 
 function handleFollowEvent(client, token) {
+  console.log(token);
   const message = {
     type: 'text',
     message: 'Hello! My name is Peach Cookie! The cutest cookie in Cookie Run: Ovenbreak!',
@@ -96,6 +97,8 @@ function handleFollowEvent(client, token) {
 }
 
 function handleMessageEvent(client, text, token) {
+  console.log(text);
+  console.log(token);
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',
@@ -157,6 +160,7 @@ function handleMessageEvent(client, text, token) {
 }
 
 function handleNotUnderstand(client, token) {
+  console.log(token);
   const message = {
     type: 'text',
     text: 'I\'m sowwy, but I don\'t understand what are you talking about...',
