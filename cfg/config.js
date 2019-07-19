@@ -1,3 +1,4 @@
+/*
 import dotenv from 'dotenv';
 
 const result = dotenv.config({
@@ -13,3 +14,4 @@ export const config = {
   access_token: process.env.CHANNEL_ACCESS_TOKEN,
   secret: process.env.CHANNEL_SECRET,
 };
+*/
