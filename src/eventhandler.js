@@ -1,7 +1,10 @@
 import data from './data.json';
 
 export function handleEvents(client, events) {
-  return Promise.all(events.map(event => replyMessage(client, event)));
+  return Promise.all(events.map(event => replyMessage(client, event)))
+    .catch(err => {
+      console.error(err);
+    });
 }
 
 const quickReply = {
