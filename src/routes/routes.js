@@ -13,9 +13,11 @@ const client = new Client(config);
 
 const router = express.Router();
 
-router.post('/webhook', 
+router.post('/webhook',
   middleware(config),
-  checkSignature(req, res),
+  (req, res) => {
+    checkSignature(req, res);
+  },
   handleEvents(client, req.body.events)
     .then(result => res.status(200).send(result))
     .catch(err => {
