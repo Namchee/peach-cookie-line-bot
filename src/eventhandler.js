@@ -54,8 +54,6 @@ const quickReply = {
 };
 
 export async function replyMessage(client, event) {
-  console.log(client);
-  console.log(event);
   switch (event.type) {
     case 'follow': {
       try {
