@@ -1,0 +1,23 @@
+{
+    "greet": [
+        "*groan* More training?",
+        "I should go looking for some fun!"
+    ],
+    "cheer": [
+        "A quick spar?",
+        "Hyaah!"
+    ],
+    "chat": [
+        "Don't need to try hard at all!",
+        "I want some dumplings",
+        "Heard of a sugar crystal like the warm sun!"
+    ],
+    "like": [
+        "Solid Yellow Sugar Crystals",
+        "Tome of Mastery",
+        "Panda Dumplings (1000 coins)"
+    ],
+    "dislike": [
+        "Golden Hammers! They're too heavy!"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "peach-bot",
+  "version": "1.0.0",
+  "description": "Experimentation of LINE Chatbot x CROB",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./index.js -d dist",
+    "start": "babel-node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Namchee/peach-cookie-line-bot.git"
+  },
+  "keywords": [
+    "LINE",
+    "chatbot",
+    "CROB"
+  ],
+  "author": "Cristopher Namchee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Namchee/peach-cookie-line-bot/issues"
+  },
+  "homepage": "https://github.com/Namchee/peach-cookie-line-bot#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^6.8.0",
+    "@types/express": "^4.17.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
