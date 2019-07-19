@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export function checkSignature(req, res) {
+export function checkSignature(req, res, next) {
   try {
     const body = JSON.stringify(req.body);
 
@@ -11,9 +11,11 @@ export function checkSignature(req, res) {
       return res.status(401)
         .send('Unauthorized');
     }
+
+    next();
   } catch (err) {
     console.error(err);
 
-    res.status(500).send('Internal server error');
+    return res.status(500).send('Internal server error');
   }
 }
