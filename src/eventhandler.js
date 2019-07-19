@@ -53,21 +53,30 @@ const quickReply = {
   ],
 };
 
-export function replyMessage(client, event) {
+export async function replyMessage(client, event) {
   switch (event.type) {
     case 'follow': {
-      handleFollowEvent(client);
-      break;
+      try {
+        await handleFollowEvent(client);
+      } catch (err) {
+        throw err;
+      } finally {
+        break;
+      }
     }
 
     case 'message': {
-      if (event.message.type !== 'text') {
-        handleNotUnderstand(client);
+      try {
+        if (event.message.type !== 'text') {
+          await handleNotUnderstand(client);
+        } else {
+          await handleMessageEvent(client, event.message.text);
+        }
+      } catch (err) {
+        throw err;
+      } finally {
         break;
       }
-
-      handleMessageEvent(client, event.message.text);
-      break;
     }
 
     default: {
