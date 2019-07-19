@@ -86,8 +86,6 @@ export async function replyMessage(client, event) {
 }
 
 function handleFollowEvent(client, token) {
-  console.log(token);
-  
   const message = {
     type: 'text',
     message: 'Hello! My name is Peach Cookie! The cutest cookie in Cookie Run: Ovenbreak!',
