@@ -4,7 +4,8 @@
   "description": "Experimentation of LINE Chatbot x CROB",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./index.js"
+    "build": "webpack",
+    "start": "node ./dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,11 @@
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@types/morgan": "^1.7.36",
+    "@types/webpack": "^4.32.0",
+    "babel-loader": "^8.0.6",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
-    "parcel": "^1.12.3"
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
   }
 }
